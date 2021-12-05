@@ -16,4 +16,5 @@ Oof this one was hard. :(
 Ok. Ignore the amount of if statements with repeated code, I did not want the worlds' longest if statement full of ands and ors. ;(
 
 ## Credits
-Jensen Bradshaw https://github.com/Jensen6842
+Jensen Bradshaw https://github.com/Jensen6842 <br />
+Eric Wastl https://github.com/topaz
