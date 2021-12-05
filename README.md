@@ -5,7 +5,7 @@ Advent of Code is an Advent calendar of small programming puzzles for a variety 
 
 ## Log
 
-### Day1
+### Day 1
 I've missed working on files. :)
 
 ### Day 2
