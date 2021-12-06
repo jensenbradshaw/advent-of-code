@@ -17,6 +17,9 @@ Oof this one was hard. :(
 ### Day 4
 Ok. Ignore the amount of if statements with repeated code, I did not want the worlds' longest if statement full of ands and ors. ;(
 
+## Day 5
+I forgot how much Python arrays suck when you try making a 2d array full of a set value. But part 1 seemed harder than it was thankfully.
+
 ## Credits
 Jensen Bradshaw https://github.com/Jensen6842 <br />
 Eric Wastl https://github.com/topaz
