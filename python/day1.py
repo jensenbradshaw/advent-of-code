@@ -1,4 +1,4 @@
-f = open('day1.txt')
+f = open('../data/day1.txt')
 lines = f.readlines()
 
 for i in range(len(lines)):
