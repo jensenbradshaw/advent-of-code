@@ -118,6 +118,7 @@ for i in range(len(call_order)):
     if bingo == True:
         break
 
+print()
 # PART 2
 
 bingo = False
