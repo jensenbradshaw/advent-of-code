@@ -1,4 +1,4 @@
-f = open("../data/day3.txt")
+f = open("day3.txt")
 lines = f.readlines()
 for i in range(len(lines)):
     lines[i] = lines[i].replace('\n', '')
