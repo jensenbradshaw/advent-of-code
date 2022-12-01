@@ -1,25 +1,25 @@
 f = open('day1.txt')
 lines = f.readlines()
 
-currentCalories = 0
-highestCalories = 0
-secondHighestCalories = 0
-thirdHighestCalories = 0
+current_calories = 0
+highest_calories = 0
+second_highest_calories = 0
+third_highest_calories = 0
 for i in range(len(lines)):
     lines[i] = lines[i].replace('\n', '')
     if lines[i]:
-        currentCalories += int(lines[i])
+        current_calories += int(lines[i])
     else:
-        if highestCalories < currentCalories:
-            thirdHighestCalories = secondHighestCalories
-            secondHighestCalories = highestCalories
-            highestCalories = currentCalories
-        elif secondHighestCalories < currentCalories:
-            thirdHighestCalories = secondHighestCalories
-            secondHighestCalories = currentCalories
-        elif thirdHighestCalories < currentCalories:
-            thirdHighestCalories = currentCalories
-        currentCalories=0
+        if highest_calories < current_calories:
+            third_highest_calories = second_highest_calories
+            second_highest_calories = highest_calories
+            highest_calories = current_calories
+        elif second_highest_calories < current_calories:
+            third_highest_calories = second_highest_calories
+            second_highest_calories = current_calories
+        elif third_highest_calories < current_calories:
+            third_highest_calories = current_calories
+        current_calories=0
 
-print("Part 1 Solution:", highestCalories)
-print("Part 2 Solution:", highestCalories + secondHighestCalories + thirdHighestCalories)
+print("Part 1 Solution:", highest_calories)
+print("Part 2 Solution:", highest_calories + second_highest_calories + third_highest_calories)
