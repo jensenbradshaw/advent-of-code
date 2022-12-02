@@ -6,67 +6,70 @@ void main()
     FILE* fp = fopen("day2.txt", "r");
     char line[6];
     int score_1 = 0;
+    int score_2 = 0;
 
     while( fgets(line, sizeof(line), fp) )
     {
-        printf("Opponent: \"%c\"\nYourself: \"%c\"\n", line[0], line[2]);
-
         if( line[2] == 'X' )
         {
             score_1 += 1;
+
             if( line[0] == 'B' )
             {
-                printf("Loss: 1\n");
+                score_2 += 1;
             }
             else if( line[0] == 'A' )
             {
-                printf("Draw: 4\n");
                 score_1 += 3;
+                score_2 += 3;
             }
             else
             {
-                printf("Win: 7\n");
                 score_1 += 6;
+                score_2 += 2;
             }
         }
         else if( line[2] == 'Y')
         {
             score_1 += 2;
+            score_2 += 3;
+
             if( line[0] == 'C' )
             {
-                printf("Loss: 2\n");
+                score_2 += 3;
             }
             else if( line[0] == 'B' )
             {
-                printf("Draw: 5\n");
                 score_1 += 3;
+                score_2 += 2;
             }
             else
             {
-                printf("Win: 8\n");
                 score_1 += 6;
+                score_2 += 1;
             }
         }
         else
         {
             score_1 += 3;
+            score_2 += 6;
+
             if( line[0] == 'A' )
             {
-                printf("Loss: 3\n");
+                score_2 += 2;
             }
             else if( line[0] == 'C' )
             {
-                printf("Draw: 6\n");
                 score_1 += 3;
+                score_2 += 1;
             }
             else
             {
-                printf("Win: 9\n");
                 score_1 += 6;
+                score_2 += 3;
             }
         }
-        printf("Running Total: %d\n\n", score_1);
     }
 
-    printf("Solution 1: %d\n", score_1);
+    printf("Solution 1: %d\nSoltuion 2: %d\n", score_1, score_2);
 }
