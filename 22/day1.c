@@ -12,7 +12,7 @@ void main()
     char line[10];
     while(fgets(line, 10, fp))
     {
-        if( line[0] == '\n' || line[0] == '\r' )
+        if( line[0] == '\n' )
         {
             if( highest_calories < current_calories )
             {
