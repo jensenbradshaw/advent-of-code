@@ -5,9 +5,9 @@ f.close()
 priority_sum = 0
 
 for line in lines:
-    line = line.replace('\n', '')
-    comp1 = line[:(len(line)//2)]
-    comp2 = line[(len(line)//2):]
+    length = len(line)//2
+    comp1 = line[:length]
+    comp2 = line[length:]
 
     for char in comp2:
         if char in comp1:
