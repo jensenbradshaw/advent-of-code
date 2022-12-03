@@ -43,10 +43,6 @@ int solution_1(FILE* fp)
         int halflen = strlen(line)/2;
         char item;
         string_split(line, halflen, first, second);
-        printf("Line: %s", line);
-        printf("First: %s\n", first);
-        printf("Second: %s\n\n", second);
-
         for( int i = 0; i < strlen(first); i++)
         {
             for( int j = 0; j < strlen(second); j++ )
