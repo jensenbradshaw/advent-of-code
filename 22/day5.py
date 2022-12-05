@@ -25,12 +25,10 @@ def getStacks(lines):
     
     return stacks
 
-def solution(stacks, part2):
-    for line in lines[10:]:
-        line = re.split('move | from | to |\n', line)
-        amount = int(line[1])
-        box1 = int(line[2]) - 1
-        box2 = int(line[3]) - 1
+def solution(moves, stacks, part2):
+    for move in moves:
+        move = re.split('move | from | to |\n', move)
+        amount, box1, box2 = int(move[1]), int(move[2]) - 1, int(move[3]) - 1
 
         if not part2:
             for i in range(amount):
@@ -45,5 +43,6 @@ def solution(stacks, part2):
 
     return answer
 
-print("Solution 1:", solution(getStacks(openFile('day5.txt')), False))
-print("Solution 2:", solution(getStacks(openFile('day5.txt')), True))
+f = openFile('day5.txt')
+print("Solution 1:", solution(f[10:], getStacks(f[:9]), False))
+print("Solution 2:", solution(f[10:], getStacks(f[:9]), True))
