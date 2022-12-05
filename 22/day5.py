@@ -16,8 +16,8 @@ def getStacks(lines):
 
     for line in lines[:8]:
         for i in range(len(line)):
-            if (line[i] != ' ' and line[i] != '[' and
-                line[i] != ']' and line[i] != '\n'):
+            delims = [' ', '[', ']', '\n']
+            if line[i] not in delims:
                 stacks[(i-1)//4].append(line[i])
 
     for i in range(len(stacks)):
