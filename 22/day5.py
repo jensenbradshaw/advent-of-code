@@ -12,12 +12,6 @@ def openFile(filename):
 def getStacks(lines):
     '''Takes in a string containing the lines of the file representing the
     stacks, returns a 2d array representing the stacks.'''
-    stack_num = 0
-
-    for char in lines[8]:
-        if char != ' ' and char != '\n':
-            stack_num += 1
-
     stacks = [[] for i in range(9)]
 
     for line in lines[:8]:
