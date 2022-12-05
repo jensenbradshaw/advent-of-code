@@ -23,29 +23,19 @@ def getStacks(lines):
     
     return stacks
 
-def copy2dArray(old):
-    new = []
-
-    for i in range(0, len(old)):
-        new.append([])
-        for j in range(0, len(old[i])):
-            new[i].append([])
-
-    for i in range(0, len(old)):
-        for j in range(0, len(old[i])):
-            new[i][j] = old[i][j]
-
-    return new
-
-def solution_1(stacks):
+def solution(stacks, part2):
     for line in lines[10:]:
         line = re.split('move | from | to |\n', line)
         amount = int(line[1])
         box1 = int(line[2]) - 1
         box2 = int(line[3]) - 1
 
-        for i in range(amount):
-            stacks[box2].append(stacks[box1].pop(-1))
+        if not part2:
+            for i in range(amount):
+                stacks[box2].append(stacks[box1].pop(-1))
+        else:
+            for i in range(amount, 0, -1):
+                stacks[box2].append(stacks[box1].pop(-i))
 
     answer = ''
     for stack in stacks:
@@ -53,24 +43,5 @@ def solution_1(stacks):
 
     return answer
 
-def solution_2(stacks):
-    for line in lines[10:]:
-        line = re.split('move | from | to |\n', line)
-        amount = int(line[1])
-        box1 = int(line[2]) - 1
-        box2 = int(line[3]) - 1
-
-        for i in range(amount, 0, -1):
-            stacks[box2].append(stacks[box1].pop(-i))
-
-    answer = ''
-    for stack in stacks:
-        answer += stack[-1]
-
-    return answer
-
-stacks1 = getStacks(lines)
-stacks2 = copy2dArray(stacks1)
-
-print("Solution 1:", solution_1(stacks1))
-print("Solution 2:", solution_2(stacks2))
+print("Solution 1:", solution(getStacks(lines), False))
+print("Solution 2:", solution(getStacks(lines), True))
