@@ -1,12 +1,17 @@
 import re
 
 def openFile(filename):
+    '''Takes in a string containing a file name,
+    returns an array of the lines of the file.'''
     f = open(filename)
     lines = f.readlines()
     f.close()
+
     return lines
 
 def getStacks(lines):
+    '''Takes in a string containing the lines of the file representing the
+    stacks, returns a 2d array representing the stacks.'''
     stack_num = 0
 
     for char in lines[8]:
@@ -17,7 +22,8 @@ def getStacks(lines):
 
     for line in lines[:8]:
         for i in range(len(line)):
-            if line[i] != ' ' and line[i] != '[' and line[i] != ']' and line[i] != '\n':
+            if (line[i] != ' ' and line[i] != '[' and
+                line[i] != ']' and line[i] != '\n'):
                 stacks[(i-1)//4].append(line[i])
 
     for i in range(len(stacks)):
@@ -26,6 +32,9 @@ def getStacks(lines):
     return stacks
 
 def solution(moves, stacks, part2):
+    '''Takes in a string containing the lines of the file representing the
+    moves, a 2d array representing the stacks and whether or not it is part2,
+    returns a string containing the solution.'''
     for move in moves:
         move = re.split('move | from | to |\n', move)
         amount, box1, box2 = int(move[1]), int(move[2]) - 1, int(move[3]) - 1
@@ -44,5 +53,7 @@ def solution(moves, stacks, part2):
     return answer
 
 f = openFile('day5.txt')
-print("Solution 1:", solution(f[10:], getStacks(f[:9]), False))
-print("Solution 2:", solution(f[10:], getStacks(f[:9]), True))
+stacks, moves = f[:9], f[10:]
+
+print("Solution 1:", solution(moves, getStacks(stacks), False))
+print("Solution 2:", solution(moves, getStacks(stacks), True))
