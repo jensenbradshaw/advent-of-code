@@ -14,12 +14,14 @@ def getStacks(lines):
     stacks, returns a 2d array representing the stacks.'''
     stacks = [[] for i in range(9)]
 
+    # Retreive and sort items into the correct stacks
     for line in lines[:8]:
         for i in range(len(line)):
             delims = [' ', '[', ']', '\n']
             if line[i] not in delims:
                 stacks[(i-1)//4].append(line[i])
 
+    # Reverse stack order so that highest item is at the end
     for i in range(len(stacks)):
         stacks[i] = stacks[i][::-1]
     
@@ -34,12 +36,15 @@ def solution(moves, stacks, part2):
         amount, box1, box2 = int(move[1]), int(move[2]) - 1, int(move[3]) - 1
 
         if not part2:
+            # Pop from highest down
             for i in range(amount):
                 stacks[box2].append(stacks[box1].pop(-1))
         else:
+            # Pop from lowest up
             for i in range(amount, 0, -1):
                 stacks[box2].append(stacks[box1].pop(-i))
 
+    # Find highest item on each stack
     answer = ''
     for stack in stacks:
         answer += stack[-1]
