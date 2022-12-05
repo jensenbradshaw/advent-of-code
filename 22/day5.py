@@ -1,8 +1,10 @@
 import re
 
-f = open('day5.txt')
-lines= f.readlines()
-f.close()
+def openFile(filename):
+    f = open(filename)
+    lines = f.readlines()
+    f.close()
+    return lines
 
 def getStacks(lines):
     stack_num = 0
@@ -43,5 +45,5 @@ def solution(stacks, part2):
 
     return answer
 
-print("Solution 1:", solution(getStacks(lines), False))
-print("Solution 2:", solution(getStacks(lines), True))
+print("Solution 1:", solution(getStacks(openFile('day5.txt')), False))
+print("Solution 2:", solution(getStacks(openFile('day5.txt')), True))
