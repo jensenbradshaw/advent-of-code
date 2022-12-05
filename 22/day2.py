@@ -28,12 +28,16 @@ def solution(games, scores, part2):
                 score += 3
         else:
             if game[1] == 'X':
-                move = (scores[game[0]] + 2) % 3
+                move = scores[game[0]] - 1
+                if move == 0:
+                    move = 3
                 score += move
             elif game[1] == 'Y':
                 score += scores[game[0]]
             elif game[1] == 'Z':
-                move = (scores[game[0]] + 1) % 3
+                move = scores[game[0]] + 1
+                if move == 4:
+                    move = 1
                 score += move
 
     return score
