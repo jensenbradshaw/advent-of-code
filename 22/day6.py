@@ -18,7 +18,9 @@ def solution(line, size):
         if len(marker) == size:
             if len(set(marker)) == size:
                 return i
+                
             marker.pop(0)
+
         marker.append(line[i])
 
 f = openFile('day6.txt')
