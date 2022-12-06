@@ -1,5 +1,3 @@
-import re
-
 def openFile(filename):
     '''Takes in a string containing a file name,
     returns an array of the lines of the file.'''
