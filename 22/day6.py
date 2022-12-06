@@ -10,6 +10,8 @@ def openFile(filename):
     return lines
 
 def solution(line, size):
+    '''Takes in a string containing the line of the file representing the
+    signal, and the size of the marker, returns an int of the solution.'''
     marker = []
 
     for i in range(len(line)):
