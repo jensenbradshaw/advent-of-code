@@ -105,12 +105,10 @@ def test():
 
     root.showChildren()
 
-def solution(lines, part2, showTerminal=False, showFileStructure=False):
-    '''Takes in an array containing the lines of the file, whether or not it's
-    part 2, whether or not you want to show the terminal and whether or not you
-    want to show the file structure, returns either total file size of dirs with
-    size less than 100000 or returns or smallest dir that is big enough to be
-    deleted to add a 30000000 sized file to the file system.'''
+def buildTree(lines, showTerminal=False, showFileStructure=False):
+    '''Takes in an array containing the lines of the file, whether or not you
+    want to show the terminal and whether or not you want to show the file
+    structure, returns the root object of the file system.'''
     global sumSolution
     sumSolution = 0
     path = ['/']
@@ -161,12 +159,10 @@ def solution(lines, part2, showTerminal=False, showFileStructure=False):
         print()
         root.showChildren()
 
-    if not part2:
-        return sumSolution
-    else:
-        return root.freeSpace(root.size - 40000000)
+    return root
 
 f = openFile('day7.txt')
 
-print("Solution 1:", solution(f, False))
-print("Solution 2:", solution(f, True))
+root = buildTree(f)
+print("Solution 1:", sumSolution)
+print("Solution 2:", root.freeSpace(root.size - 40000000))
