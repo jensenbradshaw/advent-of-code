@@ -170,5 +170,3 @@ f = openFile('day7.txt')
 
 print("Solution 1:", solution(f, False))
 print("Solution 2:", solution(f, True))
-
-test()
