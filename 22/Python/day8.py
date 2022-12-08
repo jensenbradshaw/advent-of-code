@@ -28,7 +28,7 @@ def parseGridForVisibility(tree_grid, visibility_grid):
                 visibility_grid[i][-(j+1)] = 1
                 highest_right = tree_grid[i][-(j+1)]
     
-    return tree_grid, visibility_grid
+    return visibility_grid
 
 def parseGridForScenic(tree_grid, scenic_grid):
     '''Takes in a 2d array representing tree heights and a 2d array representing
@@ -56,7 +56,7 @@ def parseGridForScenic(tree_grid, scenic_grid):
 
             scenic_grid[i][j] *= scenic_sum
 
-    return tree_grid, scenic_grid
+    return scenic_grid
 
 def solution(lines, part2):
     '''Takes in an array containing the lines of the files and whether or not
@@ -67,9 +67,9 @@ def solution(lines, part2):
     if not part2:
         visibility_grid = np.array([[0 for value in line[:-1]] for line in lines])
 
-        tree_grid, visibility_grid = parseGridForVisibility(tree_grid, visibility_grid)
+        visibility_grid = parseGridForVisibility(tree_grid, visibility_grid)
         # Transpose to parse up and down
-        tree_grid, visibility_grid = parseGridForVisibility(tree_grid.T, visibility_grid.T)
+        visibility_grid = parseGridForVisibility(tree_grid.T, visibility_grid.T)
 
         visibility_sum = 0
         for row in visibility_grid:
@@ -81,9 +81,9 @@ def solution(lines, part2):
     else:
         scenic_grid = np.array([[1 for value in line[:-1]] for line in lines])
 
-        tree_grid, scenic_grid = parseGridForScenic(tree_grid, scenic_grid)
+        scenic_grid = parseGridForScenic(tree_grid, scenic_grid)
         # Transpose to parse up and down
-        tree_grid, scenic_grid = parseGridForScenic(tree_grid.T, scenic_grid.T)
+        scenic_grid = parseGridForScenic(tree_grid.T, scenic_grid.T)
 
         highest_scenic = 0
         for row in scenic_grid:
