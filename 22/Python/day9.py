@@ -75,7 +75,6 @@ class Head(Knot):
                 if abs(self.child.y - self.y) > 1:
                     self.child.updateKnot()
         
-
 def openFile(filename):
     '''Takes in a string containing a file name, returns an array of the lines
     of the file.'''
